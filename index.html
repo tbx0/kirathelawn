@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TheLawn – Area Calculator">
+    <meta property="og:description" content="Kira keluasan laman dengan tepat. Sesuai untuk racun, baja & topdress rumput di Malaysia.">
+    <meta property="og:image" content="img/ogcalc.jpg">
+    <meta property="og:site_name" content="TheLawn">
+
+    <!-- Image fallback details -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheLawn - Area Calculator</title>
@@ -792,13 +804,39 @@
             margin: 0.5rem;
             font-size: 0.875rem;
         }
+        /* Navigation Bar */
+        .nav-links {
+            display: none;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #059669;
+        }
+
+        /* Desktop only */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container">
-            <div class="header-content">
+            <div class="header-content" style="justify-content: space-between; width:100%;">
                 <a href="#" class="logo">
                     <div class="logo-icon">
                         <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 989.11 989.01">
@@ -816,6 +854,15 @@
                     </div>
                     <span class="logo-text">The<span class="highlight">Lawn</span></span>
                 </a>
+                
+                <!-- Navigation -->
+                <nav class="nav-links">
+                    <a href="https://s.shopee.com.my/3B0MYJyA29" target="_blank">Shopee</a>
+                    <a href="https://wa.me/601121888274" target="_blank">WhatsApp</a>
+                    <a href="https://www.facebook.com/thelawnmalaysia" target="_blank">Facebook</a>
+                    <a href="https://www.tiktok.com/@thelawncare" target="_blank">TikTok</a>
+                </nav>
+
             </div>
         </div>
     </header>
