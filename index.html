@@ -829,6 +829,116 @@
                 display: flex;
             }
         }
+/* Mobile Menu Button */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    height: 3px;
+    width: 100%;
+    background: #111827;
+    border-radius: 2px;
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+.mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1500;
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.menu-toggle span {
+    transition: all 0.3s ease;
+}
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Active = X */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+/* Mobile Navigation Panel */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: white;
+    box-shadow: -4px 0 16px rgba(0,0,0,0.15);
+    padding: 5rem 1.5rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* ⬅️ vertical center */
+    align-items: center;       /* ⬅️ horizontal center */
+    gap: 1.5rem;
+
+    transition: right 0.3s ease;
+    z-index: 2000;
+}
+
+
+.mobile-nav a {
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.mobile-nav a:hover {
+    color: #059669;
+}
+
+/* CTA */
+.mobile-cta {
+    background: #059669;
+    color: white !important;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    text-align: center;
+}
+
+/* Active State */
+.mobile-nav.active {
+    right: 0;
+}
+.header-content {
+    justify-content: space-between;
+    width: 100%;
+}
+
 
     </style>
 </head>
@@ -836,7 +946,7 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <div class="header-content" style="justify-content: space-between; width:100%;">
+            <div class="header-content">
                 <a href="#" class="logo">
                     <div class="logo-icon">
                         <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 989.11 989.01">
@@ -857,15 +967,34 @@
                 
                 <!-- Navigation -->
                 <nav class="nav-links">
-                    <a href="https://s.shopee.com.my/3B0MYJyA29" target="_blank">Shopee</a>
+                
+                    <a href="https://s.shopee.com.my/3B0MYJyA29" target="_blank">Official Store</a>
                     <a href="https://wa.me/601121888274" target="_blank">WhatsApp</a>
                     <a href="https://www.facebook.com/thelawnmalaysia" target="_blank">Facebook</a>
                     <a href="https://www.tiktok.com/@thelawncare" target="_blank">TikTok</a>
+                
                 </nav>
-
+                <!-- Mobile Menu Button -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>
+    <!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobileNav">
+    <a href="https://s.shopee.com.my/3B0MYJyA29" target="_blank" class="mobile-cta">
+        Official Store
+    </a>
+    <a href="https://wa.me/601121888274" target="_blank">WhatsApp</a>
+    <a href="https://www.facebook.com/thelawnmalaysia" target="_blank">Facebook</a>
+    <a href="https://www.tiktok.com/@thelawncare" target="_blank">TikTok</a>
+</div>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1158,5 +1287,36 @@
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="app.js"></script>
+    <script>
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+const mobileOverlay = document.getElementById('mobileOverlay');
+
+function openMenu() {
+    mobileNav.classList.add('active');
+    mobileOverlay.classList.add('active');
+    menuToggle.classList.add('active');
+    document.body.classList.add('menu-open');
+}
+
+function closeMenu() {
+    mobileNav.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    menuToggle.classList.remove('active');
+    document.body.classList.remove('menu-open');
+}
+
+menuToggle.addEventListener('click', () => {
+    mobileNav.classList.contains('active') ? closeMenu() : openMenu();
+});
+
+mobileOverlay.addEventListener('click', closeMenu);
+
+document.querySelectorAll('.mobile-nav a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+</script>
+
+
 </body>
 </html>
