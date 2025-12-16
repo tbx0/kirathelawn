@@ -1319,6 +1319,50 @@ document.querySelectorAll('.mobile-nav a').forEach(link => {
     link.addEventListener('click', closeMenu);
 });
 </script>
+<script>
+/* ================================
+   SAVE INPUT DATA TO LOCALSTORAGE
+================================ */
+
+const fields = [
+  'pesticideAmount',
+  'pesticideUnit',
+  'waterAmount',
+  'waterUnit',
+  'labelArea',
+  'labelAreaUnit',
+  'yourArea',
+  'sandThickness',
+  'sandArea'
+];
+
+// Restore saved values on page load
+window.addEventListener('DOMContentLoaded', () => {
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const saved = localStorage.getItem('thelawn_' + id);
+    if (saved !== null) {
+      el.value = saved;
+    }
+  });
+});
+
+// Save value on change / input
+fields.forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  el.addEventListener('input', () => {
+    localStorage.setItem('thelawn_' + id, el.value);
+  });
+
+  el.addEventListener('change', () => {
+    localStorage.setItem('thelawn_' + id, el.value);
+  });
+});
+</script>
 
 
 </body>
