@@ -1,8 +1,23 @@
-// Initialize map centered on Stadium Merdeka
+// Initialize map with saved location or default to Stadium Merdeka
+const savedLat = localStorage.getItem('thelawn_map_lat');
+const savedLng = localStorage.getItem('thelawn_map_lng');
+const savedZoom = localStorage.getItem('thelawn_map_zoom');
+
+const initialLat = savedLat ? parseFloat(savedLat) : 3.1412;
+const initialLng = savedLng ? parseFloat(savedLng) : 101.6994;
+const initialZoom = savedZoom ? parseInt(savedZoom) : 18;
+
+// Log if using saved location
+if (savedLat && savedLng) {
+    console.log('Map restored to saved location:', { lat: initialLat, lng: initialLng, zoom: initialZoom });
+} else {
+    console.log('Map initialized at default location (Stadium Merdeka)');
+}
+
 const map = L.map('map', {
     attributionControl: false,
     maxZoom: 19
-}).setView([3.1412, 101.6994], 18);
+}).setView([initialLat, initialLng], initialZoom);
 
 // Define tile layers
 const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -17,6 +32,18 @@ const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.
 
 // Add default layer (satellite)
 satelliteLayer.addTo(map);
+
+// Save map position and zoom when user moves/zooms the map
+map.on('moveend', () => {
+    const center = map.getCenter();
+    localStorage.setItem('thelawn_map_lat', center.lat);
+    localStorage.setItem('thelawn_map_lng', center.lng);
+});
+
+map.on('zoomend', () => {
+    const zoom = map.getZoom();
+    localStorage.setItem('thelawn_map_zoom', zoom);
+});
 
 // Layer switching functionality
 document.querySelectorAll('.layer-btn').forEach(btn => {
@@ -310,6 +337,11 @@ document.getElementById('locationBtn').addEventListener('click', () => {
             (position) => {
                 const { latitude, longitude } = position.coords;
                 map.setView([latitude, longitude], 18);
+
+                // Save GPS location to localStorage
+                localStorage.setItem('thelawn_map_lat', latitude);
+                localStorage.setItem('thelawn_map_lng', longitude);
+                localStorage.setItem('thelawn_map_zoom', 18);
 
                 L.marker([latitude, longitude], {
                     icon: L.divIcon({
