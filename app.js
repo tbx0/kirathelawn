@@ -1,7 +1,25 @@
+// Test localStorage availability
+function testLocalStorage() {
+    try {
+        const test = '__localStorage_test__';
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+    } catch(e) {
+        console.error('❌ localStorage is not available!', e);
+        return false;
+    }
+}
+
+const isLocalStorageAvailable = testLocalStorage();
+if (!isLocalStorageAvailable) {
+    console.warn('⚠️ Map position will NOT be saved (localStorage unavailable)');
+}
+
 // Initialize map with saved location or default to Stadium Merdeka
-const savedLat = localStorage.getItem('thelawn_map_lat');
-const savedLng = localStorage.getItem('thelawn_map_lng');
-const savedZoom = localStorage.getItem('thelawn_map_zoom');
+const savedLat = isLocalStorageAvailable ? localStorage.getItem('thelawn_map_lat') : null;
+const savedLng = isLocalStorageAvailable ? localStorage.getItem('thelawn_map_lng') : null;
+const savedZoom = isLocalStorageAvailable ? localStorage.getItem('thelawn_map_zoom') : null;
 
 const initialLat = savedLat ? parseFloat(savedLat) : 3.1412;
 const initialLng = savedLng ? parseFloat(savedLng) : 101.6994;
@@ -9,15 +27,39 @@ const initialZoom = savedZoom ? parseInt(savedZoom) : 18;
 
 // Log if using saved location
 if (savedLat && savedLng) {
-    console.log('Map restored to saved location:', { lat: initialLat, lng: initialLng, zoom: initialZoom });
+    console.log('✅ Map restored to saved location:', { lat: initialLat, lng: initialLng, zoom: initialZoom });
+    console.log('📦 LocalStorage data:', {
+        saved_lat: savedLat,
+        saved_lng: savedLng,
+        saved_zoom: savedZoom
+    });
 } else {
-    console.log('Map initialized at default location (Stadium Merdeka)');
+    console.log('🗺️ Map initialized at default location (Stadium Merdeka)');
 }
 
 const map = L.map('map', {
     attributionControl: false,
     maxZoom: 19
 }).setView([initialLat, initialLng], initialZoom);
+
+// Show notification if location was restored
+if (savedLat && savedLng) {
+    setTimeout(() => {
+        const popup = L.popup({
+            closeButton: false,
+            autoClose: true,
+            closeOnClick: true
+        })
+        .setLatLng([initialLat, initialLng])
+        .setContent(`<div style="text-align: center; font-size: 0.875rem;"><strong>📍 Map Restored</strong><br>Last saved location</div>`)
+        .openOn(map);
+        
+        // Auto close after 2 seconds
+        setTimeout(() => {
+            map.closePopup();
+        }, 2000);
+    }, 1000);
+}
 
 // Define tile layers
 const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -34,15 +76,39 @@ const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.
 satelliteLayer.addTo(map);
 
 // Save map position and zoom when user moves/zooms the map
+// Use debounce to avoid too many writes
+let saveTimeout;
 map.on('moveend', () => {
-    const center = map.getCenter();
-    localStorage.setItem('thelawn_map_lat', center.lat);
-    localStorage.setItem('thelawn_map_lng', center.lng);
+    if (!isLocalStorageAvailable) return;
+    
+    clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(() => {
+        const center = map.getCenter();
+        const zoom = map.getZoom();
+        try {
+            localStorage.setItem('thelawn_map_lat', center.lat.toFixed(6));
+            localStorage.setItem('thelawn_map_lng', center.lng.toFixed(6));
+            localStorage.setItem('thelawn_map_zoom', zoom);
+            console.log('💾 Map position saved:', { lat: center.lat.toFixed(6), lng: center.lng.toFixed(6), zoom });
+        } catch(e) {
+            console.error('Error saving map position:', e);
+        }
+    }, 500);
 });
 
 map.on('zoomend', () => {
-    const zoom = map.getZoom();
-    localStorage.setItem('thelawn_map_zoom', zoom);
+    if (!isLocalStorageAvailable) return;
+    
+    clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(() => {
+        const zoom = map.getZoom();
+        try {
+            localStorage.setItem('thelawn_map_zoom', zoom);
+            console.log('💾 Zoom level saved:', zoom);
+        } catch(e) {
+            console.error('Error saving zoom level:', e);
+        }
+    }, 500);
 });
 
 // Layer switching functionality
@@ -339,9 +405,23 @@ document.getElementById('locationBtn').addEventListener('click', () => {
                 map.setView([latitude, longitude], 18);
 
                 // Save GPS location to localStorage
-                localStorage.setItem('thelawn_map_lat', latitude);
-                localStorage.setItem('thelawn_map_lng', longitude);
-                localStorage.setItem('thelawn_map_zoom', 18);
+                if (isLocalStorageAvailable) {
+                    try {
+                        const savedLat = latitude.toFixed(6);
+                        const savedLng = longitude.toFixed(6);
+                        localStorage.setItem('thelawn_map_lat', savedLat);
+                        localStorage.setItem('thelawn_map_lng', savedLng);
+                        localStorage.setItem('thelawn_map_zoom', 18);
+                        
+                        console.log('💾 GPS Location saved to localStorage:', { 
+                            lat: savedLat, 
+                            lng: savedLng, 
+                            zoom: 18 
+                        });
+                    } catch(e) {
+                        console.error('Error saving GPS location:', e);
+                    }
+                }
 
                 L.marker([latitude, longitude], {
                     icon: L.divIcon({
@@ -353,6 +433,7 @@ document.getElementById('locationBtn').addEventListener('click', () => {
                 }).addTo(map).bindPopup('Your Location').openPopup();
             },
             (error) => {
+                console.error('Geolocation error:', error);
                 alert('Unable to retrieve your location. Please ensure location services are enabled.');
             }
         );
@@ -376,9 +457,31 @@ document.getElementById('searchBtn').addEventListener('click', () => {
         .then(data => {
             if (data && data.length > 0) {
                 const { lat, lon, display_name } = data[0];
-                map.setView([parseFloat(lat), parseFloat(lon)], 16);
+                const latitude = parseFloat(lat);
+                const longitude = parseFloat(lon);
+                const zoom = 16;
+                
+                map.setView([latitude, longitude], zoom);
 
-                L.marker([parseFloat(lat), parseFloat(lon)])
+                // Save searched location to localStorage
+                if (isLocalStorageAvailable) {
+                    try {
+                        localStorage.setItem('thelawn_map_lat', latitude.toFixed(6));
+                        localStorage.setItem('thelawn_map_lng', longitude.toFixed(6));
+                        localStorage.setItem('thelawn_map_zoom', zoom);
+                        
+                        console.log('💾 Search location saved:', { 
+                            lat: latitude.toFixed(6), 
+                            lng: longitude.toFixed(6), 
+                            zoom,
+                            name: display_name 
+                        });
+                    } catch(e) {
+                        console.error('Error saving search location:', e);
+                    }
+                }
+
+                L.marker([latitude, longitude])
                     .addTo(map)
                     .bindPopup(display_name)
                     .openPopup();
