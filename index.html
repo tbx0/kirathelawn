@@ -807,6 +807,33 @@
             margin: 0.5rem;
             font-size: 0.875rem;
         }
+
+        /* Sidebar CTA Button */
+        .sidebar-cta {
+            display: block;
+            width: 100%;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #00bf5d 0%, #047857 100%);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 191, 93, 0.2);
+        }
+
+        .sidebar-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 191, 93, 0.3);
+        }
+
+        .sidebar-cta:active {
+            transform: translateY(0);
+        }
+
         /* Navigation Bar */
         .nav-links {
             display: none;
@@ -1118,6 +1145,10 @@ body.menu-open {
                         </svg>
                         <p>Click on the map to start measuring your lawn area</p>
                     </div>
+
+                    <a href="3bulan.html" class="sidebar-cta" id="ctaLink">
+                        👉 Dapatkan Set Lengkap Penjagaan 3 Bulan
+                    </a>
                 </div>
             </div>
         </div>
@@ -1361,6 +1392,18 @@ fields.forEach(id => {
   el.addEventListener('change', () => {
     localStorage.setItem('thelawn_' + id, el.value);
   });
+});
+</script>
+<script>
+// Handle CTA link to pass area data to 3bulan page
+document.getElementById('ctaLink').addEventListener('click', (e) => {
+    // Check if we have area measurement
+    const areaSqft = document.getElementById('areaSqft').textContent;
+    if (areaSqft && areaSqft !== '0') {
+        // Save the area to localStorage for 3bulan page to pick up
+        localStorage.setItem('thelawn_mapArea', areaSqft);
+    }
+    // Let the link navigate normally
 });
 </script>
 
