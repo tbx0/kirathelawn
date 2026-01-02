@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '900102066843939');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=900102066843939&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZB9H44LLN"></script>
     <script>
@@ -1684,6 +1701,22 @@
 
             whatsappMessage += `*Jumlah Keseluruhan: RM${formatNumber(results.total.toFixed(2))}*\n`;
             whatsappMessage += `(Penghantaran percuma Semenanjung Malaysia)`;
+
+            // Track Meta Pixel Lead event with order value
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    value: results.total,
+                    currency: 'MYR',
+                    content_name: 'Set Penjagaan Laman 3 Bulan',
+                    content_category: 'Lawn Care Package',
+                    contents: results.products.map(p => ({
+                        id: p.name,
+                        quantity: 1,
+                        item_price: p.price
+                    })),
+                    num_items: results.products.length
+                });
+            }
 
             // Open WhatsApp with message
             const encodedMessage = encodeURIComponent(whatsappMessage);
