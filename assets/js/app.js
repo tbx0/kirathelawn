@@ -1,3 +1,7 @@
+// =========================================
+// AREA CALCULATOR - MAP & CALCULATIONS
+// =========================================
+
 // Test localStorage availability
 function testLocalStorage() {
     try {
@@ -92,7 +96,7 @@ if (savedLat && savedLng) {
         .setLatLng([initialLat, initialLng])
         .setContent(`<div style="text-align: center; font-size: 0.875rem;"><strong>📍 Map Restored</strong><br>Last saved location</div>`)
         .openOn(map);
-        
+
         // Auto close after 2 seconds
         setTimeout(() => {
             map.closePopup();
@@ -119,7 +123,7 @@ satelliteLayer.addTo(map);
 let saveTimeout;
 map.on('moveend', () => {
     if (!isLocalStorageAvailable) return;
-    
+
     clearTimeout(saveTimeout);
     saveTimeout = setTimeout(() => {
         const center = map.getCenter();
@@ -137,7 +141,7 @@ map.on('moveend', () => {
 
 map.on('zoomend', () => {
     if (!isLocalStorageAvailable) return;
-    
+
     clearTimeout(saveTimeout);
     saveTimeout = setTimeout(() => {
         const zoom = map.getZoom();
@@ -178,7 +182,7 @@ let polygonLayer = null;
 // Custom marker icon
 const markerIcon = L.divIcon({
     className: 'custom-marker',
-    html: '<div style="background: #059669; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+    html: '<div style="background: #194239; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
     iconSize: [12, 12],
     iconAnchor: [6, 6]
 });
@@ -259,8 +263,8 @@ function updatePolygon() {
     if (markers.length >= 3) {
         const latlngs = markers.map(m => m.getLatLng());
         polygonLayer = L.polygon(latlngs, {
-            color: '#059669',
-            fillColor: '#059669',
+            color: '#194239',
+            fillColor: '#194239',
             fillOpacity: 0.3,
             weight: 2
         }).addTo(map);
@@ -365,16 +369,16 @@ function updateUI() {
             .then(data => {
                 if (data && data.address) {
                     const address = data.address;
-                    
+
                     // Try multiple fields for city (for Malaysia addresses)
-                    const city = address.city || 
-                                 address.town || 
-                                 address.municipality || 
-                                 address.village || 
+                    const city = address.city ||
+                                 address.town ||
+                                 address.municipality ||
+                                 address.village ||
                                  address.suburb ||
                                  address.city_district ||
                                  address.county || '';
-                    
+
                     const state = address.state || '';
                     const postalCode = address.postcode || '';
 
@@ -451,11 +455,11 @@ document.getElementById('locationBtn').addEventListener('click', () => {
                         localStorage.setItem('thelawn_map_lat', savedLat);
                         localStorage.setItem('thelawn_map_lng', savedLng);
                         localStorage.setItem('thelawn_map_zoom', 18);
-                        
-                        console.log('💾 GPS Location saved to localStorage:', { 
-                            lat: savedLat, 
-                            lng: savedLng, 
-                            zoom: 18 
+
+                        console.log('💾 GPS Location saved to localStorage:', {
+                            lat: savedLat,
+                            lng: savedLng,
+                            zoom: 18
                         });
                     } catch(e) {
                         console.error('Error saving GPS location:', e);
@@ -499,7 +503,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
                 const latitude = parseFloat(lat);
                 const longitude = parseFloat(lon);
                 const zoom = 16;
-                
+
                 map.setView([latitude, longitude], zoom);
 
                 // Save searched location to localStorage
@@ -508,12 +512,12 @@ document.getElementById('searchBtn').addEventListener('click', () => {
                         localStorage.setItem('thelawn_map_lat', latitude.toFixed(6));
                         localStorage.setItem('thelawn_map_lng', longitude.toFixed(6));
                         localStorage.setItem('thelawn_map_zoom', zoom);
-                        
-                        console.log('💾 Search location saved:', { 
-                            lat: latitude.toFixed(6), 
-                            lng: longitude.toFixed(6), 
+
+                        console.log('💾 Search location saved:', {
+                            lat: latitude.toFixed(6),
+                            lng: longitude.toFixed(6),
                             zoom,
-                            name: display_name 
+                            name: display_name
                         });
                     } catch(e) {
                         console.error('Error saving search location:', e);
@@ -541,91 +545,6 @@ document.getElementById('searchInput').addEventListener('keypress', (e) => {
     }
 });
 
-// Pesticide/Foliar Calculator
-document.getElementById('calculatePesticide').addEventListener('click', () => {
-    const pesticideAmount = parseFloat(document.getElementById('pesticideAmount').value);
-    const pesticideUnit = document.getElementById('pesticideUnit').value;
-    const waterAmount = parseFloat(document.getElementById('waterAmount').value);
-    const waterUnit = document.getElementById('waterUnit').value;
-    const labelArea = parseFloat(document.getElementById('labelArea').value);
-    const labelAreaUnit = document.getElementById('labelAreaUnit').value;
-    const yourArea = parseFloat(document.getElementById('yourArea').value);
-
-    if (!pesticideAmount || !waterAmount || !labelArea || !yourArea) {
-        alert('Please fill in all fields.');
-        return;
-    }
-
-    // Convert all to base units (ml for liquids, sqft for area)
-    let pesticideInMl = pesticideAmount;
-    if (pesticideUnit === 'liter') pesticideInMl *= 1000;
-
-    let waterInLiter = waterAmount;
-    if (waterUnit === 'ml') waterInLiter /= 1000;
-
-    let labelAreaInSqft = labelArea;
-    if (labelAreaUnit === 'm2') labelAreaInSqft *= 10.7639;
-    if (labelAreaUnit === 'hectare') labelAreaInSqft *= 107639;
-
-    // Calculate ratio
-    const ratio = yourArea / labelAreaInSqft;
-
-    const pesticideNeeded = pesticideInMl * ratio;
-    const waterNeeded = waterInLiter * ratio;
-
-    // Display results
-    document.getElementById('pesticideNeeded').textContent = `${pesticideNeeded.toFixed(2)} ml`;
-    document.getElementById('waterNeeded').textContent = `${waterNeeded.toFixed(2)} liter`;
-    document.getElementById('pesticideResult').style.display = 'block';
-});
-
-// Topdress Sand Calculator
-document.getElementById('calculateSand').addEventListener('click', () => {
-    const thickness = parseFloat(document.getElementById('sandThickness').value);
-    const area = parseFloat(document.getElementById('sandArea').value);
-
-    if (!thickness || !area) {
-        alert('Please fill in all fields.');
-        return;
-    }
-
-    // Convert sqft to m²
-    const areaInM2 = area / 10.7639;
-
-    // Convert mm to meters
-    const thicknessInM = thickness / 1000;
-
-    // Calculate volume in cubic meters
-    const volumeM3 = areaInM2 * thicknessInM;
-
-    // Also show in cubic feet
-    const volumeFt3 = volumeM3 * 35.3147;
-
-    // Display results
-    document.getElementById('sandVolume').textContent = `${volumeM3.toFixed(3)} m³ (${volumeFt3.toFixed(2)} cubic feet)`;
-    document.getElementById('sandResult').style.display = 'block';
-});
-
 // Initialize UI and load saved data
 loadFromCache();
 updateUI();
-
-// Back to Top Button
-const backToTopButton = document.getElementById('backToTop');
-
-// Show/hide button based on scroll position
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('show');
-    } else {
-        backToTopButton.classList.remove('show');
-    }
-});
-
-// Scroll to top when clicked
-backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});

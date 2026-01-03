@@ -10,1003 +10,435 @@
         gtag('config', 'G-YZB9H44LLN');
     </script>
 
-    <link rel="icon" type="image/svg+xml" href="https://thelawn.com.my/asset/svg/favicon.svg">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="TheLawn – Portfolio & Gallery">
-    <meta property="og:description" content="Lihat transformasi laman sebelum dan selepas penjagaan profesional TheLawn.">
-    <meta property="og:image" content="https://thelawn.com.my/asset/img/oggallery.jpg">
-    <meta property="og:site_name" content="TheLawn">
-
-    <!-- Image fallback details -->
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/jpeg">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - TheLawn</title>
     <meta name="description" content="Browse our portfolio of lawn transformations. See the before and after results of professional lawn care services in Malaysia.">
-    <link rel="canonical" href="https://www.thelawn.com.my/gallery">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Typography */
-            --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-
-            /* Brand Colors */
-            --green-50: #f0fdf4;
-            --green-100: #dcfce7;
-            --green-500: #10b981;
-            --green-600: #059669;
-            --green-700: #047857;
-            --green-800: #065f46;
-
-            /* Neutral Colors */
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-
-            /* Spacing Scale */
-            --space-1: 0.25rem;
-            --space-2: 0.5rem;
-            --space-3: 0.75rem;
-            --space-4: 1rem;
-            --space-5: 1.25rem;
-            --space-6: 1.5rem;
-            --space-8: 2rem;
-            --space-10: 2.5rem;
-            --space-12: 3rem;
-
-            /* Border Radius */
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
-
-            /* Shadows */
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
-
-            /* Transitions */
-            --transition-fast: 150ms ease;
-            --transition-base: 200ms ease;
-            --transition-slow: 300ms ease;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--gray-50);
-            color: var(--gray-900);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0 2rem;
-            }
-        }
-
-        /* Header */
-        header {
-            background: white;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem 0;
-            margin-bottom: 0;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            background: #059669;
-            padding: 0.2rem;
-            border-radius: 3rem;
-            color: white;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #111827;
-        }
-
-        .logo-text .highlight {
-            color: #059669;
-        }
-
-        /* Navigation */
-        .nav-links {
-            display: none;
-            gap: 1.25rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #374151;
-            transition: all 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #059669;
-        }
-
-        @media (min-width: 768px) {
-            .nav-links {
-                display: flex;
-            }
-        }
-
-        /* Mobile Menu */
-        .menu-toggle {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 28px;
-            height: 20px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            height: 3px;
-            width: 100%;
-            background: #111827;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        @media (min-width: 768px) {
-            .menu-toggle {
-                display: none;
-            }
-        }
-
-        .mobile-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.45);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-            z-index: 1500;
-        }
-
-        .mobile-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        body.menu-open {
-            overflow: hidden;
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 75%;
-            height: 100vh;
-            background: white;
-            box-shadow: -4px 0 16px rgba(0,0,0,0.15);
-            padding: 5rem 1.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            transition: right 0.3s ease;
-            z-index: 2000;
-        }
-
-        .mobile-nav a {
-            text-decoration: none;
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #111827;
-        }
-
-        .mobile-nav a:hover {
-            color: #059669;
-        }
-
-        .mobile-cta {
-            background: #059669;
-            color: white !important;
-            padding: 0.75rem 1rem;
-            border-radius: 0.75rem;
-            text-align: center;
-        }
-
-        .mobile-nav.active {
-            right: 0;
-        }
-
-        .mobile-nav-social {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            padding-top: 1.5rem;
-            margin-top: 1rem;
-            border-top: 1px solid #e5e7eb;
-            width: 100%;
-        }
-
-        .mobile-nav-social a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            color: #6b7280;
-            transition: color 0.2s;
-        }
-
-        .mobile-nav-social a:hover {
-            color: #059669;
-        }
-
-        .mobile-nav-social svg {
-            width: 22px;
-            height: 22px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #00bf5d 0%, #047857 100%);
-            padding: 2rem 1rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 1.75rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: white;
-            font-family: var(--font-heading);
-        }
-
-        .hero p {
-            font-size: 1rem;
-            color: white;
-            max-width: 42rem;
-            margin: 0 auto;
-        }
-
-        @media (min-width: 768px) {
-            .hero {
-                padding: 3rem 0;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.125rem;
-            }
-        }
-
-        /* Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 3rem;
-            }
-        }
-
-        /* Comparison Card */
-        .comparison-card {
-            background: white;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            padding: var(--space-6);
-            transition: all var(--transition-slow);
-        }
-
-        .comparison-card:hover {
-            box-shadow: var(--shadow-xl);
-            transform: translateY(-4px);
-        }
-
-        .project-title {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: var(--space-2);
-        }
-
-        .project-description {
-            color: var(--gray-600);
-            font-size: 0.875rem;
-            margin-bottom: var(--space-6);
-            line-height: 1.6;
-        }
-
-        /* Before After Slider */
-        .before-after-slider {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-            border-radius: var(--radius-lg);
-            cursor: ew-resize;
-            user-select: none;
-        }
-
-        .before-image,
-        .after-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .after-image {
-            clip-path: inset(0 50% 0 0);
-        }
-
-        .slider-handle {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 4px;
-            height: 100%;
-            background: white;
-            transform: translateX(-50%);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-        }
-
-        .slider-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 48px;
-            height: 48px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            pointer-events: none;
-        }
-
-        .slider-button svg {
-            width: 24px;
-            height: 24px;
-            color: #059669;
-        }
-
-        .before-label,
-        .after-label {
-            position: absolute;
-            top: 1rem;
-            padding: 0.5rem 1rem;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            font-size: 0.875rem;
-            font-weight: 600;
-            border-radius: 0.375rem;
-            z-index: 5;
-        }
-
-        .before-label {
-            left: 1rem;
-        }
-
-        .after-label {
-            right: 1rem;
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #25D366;
-            color: white;
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            cursor: pointer;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            border: none;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .whatsapp-button:hover {
-            background: #1fb855;
-        }
-
-        .whatsapp-button svg {
-            width: 1.5rem;
-            height: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .whatsapp-button-text {
-            display: inline;
-        }
-
-        @media (min-width: 768px) {
-            .whatsapp-button {
-                bottom: 6rem;
-                right: 2rem;
-                left: auto;
-                width: 3.5rem;
-                height: 3.5rem;
-                border-radius: 50%;
-                padding: 0;
-                box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
-            }
-
-            .whatsapp-button:hover {
-                transform: translateY(-3px) scale(1.05);
-                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            }
-
-            .whatsapp-button svg {
-                width: 2rem;
-                height: 2rem;
-            }
-
-            .whatsapp-button-text {
-                display: none;
-            }
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: #059669;
-            color: white;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            border: none;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: #047857;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .back-to-top svg {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #111827;
-            color: #d1d5db;
-            padding: 3rem 0 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            text-align: center;
-        }
-
-        .footer-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-logo .logo-icon {
-            width: 32px;
-            height: 32px;
-        }
-
-        .footer-logo .logo-text {
-            font-size: 1.25rem;
-            color: white;
-        }
-
-        .footer-text {
-            font-size: 0.875rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .footer-social a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            color: #9ca3af;
-            transition: color 0.2s;
-        }
-
-        .footer-social a:hover {
-            color: var(--green-500);
-        }
-
-        .footer-social svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            font-size: 0.875rem;
-        }
-    </style>
+    <link rel="icon" type="image/svg+xml" href="https://thelawn.com.my/asset/svg/favicon.svg">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio & Gallery">
+    <meta property="og:description" content="Lihat transformasi laman sebelum dan selepas penjagaan profesional TheLawn.">
+    <meta property="og:image" content="https://thelawn.com.my/assets/img/seo/oggallery.jpg">
+    <meta property="og:site_name" content="TheLawn">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 989.11 989.01">
-                            <defs>
-                                <style>.cls-1 { fill: #fff; }</style>
-                            </defs>
-                            <g id="Layer_1-2" data-name="Layer 1">
-                                <path class="cls-1" d="M980.14,396.17c-8.25-43.35-22.18-84.75-42.22-124.08-28.85-56.63-68.01-105.24-115.09-147.65C739.56,49.44,641.94,8.34,530.11,1.14c-38.65-2.48-77.16-.94-115.5,4.82-42.56,6.4-83.53,18.19-122.78,35.86-60.64,27.3-112.75,66.41-158.29,114.56-41.97,44.37-75.45,94.29-98.49,151C10.71,367.28.03,429.75,0,494.22c-.01,30.99,2.32,59.12,7.31,88.95,9.9,59.24,30.45,114.52,61.83,165.74,26.63,43.48,59.6,81.66,97.4,115.75,33.44,30.14,70.11,55.57,110.5,75.55,66.91,33.09,138.03,48.04,212.36,48.77,32.67.32,65.14-2.21,97.36-7.9,48.41-8.55,94.36-24.17,137.75-47.27,48.38-25.75,90.8-59.28,128.63-98.77,34.36-35.88,63.35-75.6,85.72-120.05,34.07-67.69,49.51-139.75,50.22-215.22.33-34.81-2.42-69.37-8.94-103.6ZM286.46,901.48c-48.16-25.15-90.08-58.42-127.04-98.07-39.25-42.12-70.11-89.57-90.84-143.43-12.57-32.69-20.91-66.43-25.42-101.16-3.5-26.9-4.79-53.91-3.89-81,1.84-55.83,12.58-109.79,34.52-161.34,21.94-51.55,53.23-96.82,92.02-137.06,34.46-35.75,72.97-66.22,116.86-89.68,41.61-22.23,85.73-36.95,132.25-44.71,34.57-5.77,69.36-7.57,104.29-5.93,109.86,5.16,204.79,45.77,285.1,120.77,40.16,37.5,73.71,80.07,98.95,129.04,2.37,4.59,2.11,7.6-.79,11.84-78.06,114.15-155.97,228.42-233.91,342.65-1.08,1.59-1.88,3.43-4.16,5.01-58.45-202.86-116.82-405.43-175.18-608.01-.33.02-.66.03-.99.04-53.39,202.48-106.78,404.96-160.21,607.57-.87-.66-.04.03-.75-.02-.17-.01-.36-.11-.47-.23-.48-.53-.96-1.05-1.38-1.61-82.36-110.91-164.71-221.83-247.07-332.74-.1-.12-.31-.17-1.42-.76,72.11,197.68,143.85,394.34,215.95,591.99-2.79-1.37-4.63-2.22-6.42-3.16ZM667.36,918.39c-14.15,5.82-28.63,10.71-43.35,14.84-32.31,9.07-65.24,14.38-98.75,16.34-26.73,1.57-53.4,1.14-80.01-1.48-44.15-4.34-86.88-14.57-127.84-31.82-.82-.34-1.62-.74-2.46-1.03-1.33-.47-1.44-1.44-1.09-2.56.68-2.2,1.42-4.39,2.14-6.59,30.69-93.36,61.38-186.71,92.06-280.08,28.47-86.6,56.92-173.21,85.39-259.82.43-1.3.97-2.58,1.45-3.87.35-.01.7-.01,1.04-.02,2.97,9.26,5.96,18.51,8.89,27.77,55.09,173.81,110.17,347.62,165.26,521.43.05.17.15.33.19.5,1.38,5.4,2.35,4.23-2.92,6.39ZM950.4,518.86c-4.98,105.76-42.44,198.39-113.22,277.31-39.6,44.14-85.3,80.55-138.09,107.83-2.52,1.3-5.07,2.52-7.6,3.79l-.93-.72c72.72-201.71,145.44-403.41,218.5-606.05,1.02,1.95,1.66,3.05,2.19,4.21,16.92,36.73,28.05,75.17,34.23,115.13,5.05,32.68,6.47,65.54,4.92,98.5Z"/>
-                            </g>
+            <nav>
+                <a href="index.html" class="logo">TheLawn</a>
+                <ul class="nav-links">
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#benefits">Why Choose Us</a></li>
+                    <li><a href="areacalc.html">Area Calculator</a></li>
+                    <li><a href="3bulan.html">Set 3 Bulan</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li class="nav-social-links">
+                        <div class="social-links">
+                            <a href="https://wa.me/601121888274?text=Hello, TheLawn!" target="_blank" aria-label="WhatsApp">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            </a>
+                            <a href="https://www.facebook.com/thelawnmalaysia" target="_blank" aria-label="Facebook">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="https://www.tiktok.com/@thelawncare" target="_blank" aria-label="TikTok">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="https://s.shopee.com.my/3B0MYJyA29" target="_blank" class="shop-icon" aria-label="Shop">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
-                    </div>
-                    <span class="logo-text">The<span class="highlight">Lawn</span></span>
-                </a>
-
-                <!-- Navigation -->
-                <nav class="nav-links">
-                    <a href="index.html">Area Calculator</a>
-                    <a href="3bulan.html">Set 3 Bulan</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="https://s.shopee.com.my/3B0MYJyA29" target="_blank">Official Store</a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+                    </a>
+                    <a href="index.html#book" class="header-cta">Book Now</a>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
         </div>
     </header>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <a href="index.html">Area Calculator</a>
-        <a href="3bulan.html">Set 3 Bulan</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="https://s.shopee.com.my/3B0MYJyA29" target="_blank" class="mobile-cta">Official Store</a>
-
-        <div class="mobile-nav-social">
-            <a href="https://wa.me/601121888274?text=Hello, TheLawn!" target="_blank" aria-label="WhatsApp">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                </svg>
-            </a>
-            <a href="https://www.facebook.com/thelawnmalaysia" target="_blank" aria-label="Facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-            </a>
-            <a href="https://www.tiktok.com/@thelawncare" target="_blank" aria-label="TikTok">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                </svg>
-            </a>
-        </div>
-    </div>
-
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="gallery-hero">
         <div class="container">
             <h1>Portfolio & Gallery</h1>
             <p>Lihat transformasi laman kami. Geser untuk bandingkan sebelum dan selepas penjagaan profesional TheLawn.</p>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Gallery Grid -->
     <main class="container">
         <div class="gallery-grid">
             <!-- Project 1 -->
             <div class="comparison-card">
-                <h2 class="project-title">The Fungus Wars</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="1">
-                    <img src="asset\img\case\1b.jpg" alt="After" class="before-image">
-                    <img src="asset\img\case\1a.jpg" alt="Before" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="assets/img/case/1a.jpg" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="assets/img/case/1b.jpg" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>The Fungus Wars</h4>
                 </div>
             </div>
 
             <!-- Project 2 -->
             <div class="comparison-card">
-                <h2 class="project-title">Fungus Strikes Back</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="2">
-                    <img src="https://images.unsplash.com/photo-1767188870805-58724953a71a?w=900&auto=format&fit=crop&q=80" alt="Before" class="before-image">
-                    <img src="https://images.unsplash.com/photo-1767188871210-36af4e850458?w=900&auto=format&fit=crop&q=80" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="https://images.unsplash.com/photo-1767188871210-36af4e850458?w=900&auto=format&fit=crop&q=80" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="https://images.unsplash.com/photo-1767188870805-58724953a71a?w=900&auto=format&fit=crop&q=80" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>Fungus Strikes Back</h4>
                 </div>
             </div>
 
             <!-- Project 3 -->
             <div class="comparison-card">
-                <h2 class="project-title">Restoration Project</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="3">
-                    <img src="asset\img\case\silaprepaired.jpg" alt="Before" class="before-image">
-                    <img src="asset\img\case\silapbefore.jpg" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="assets/img/case/silapbefore.jpg" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="assets/img/case/silaprepaired.jpg" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>Restoration Project</h4>
                 </div>
             </div>
 
             <!-- Project 4 -->
             <div class="comparison-card">
-                <h2 class="project-title">Weeded Yard Makeover</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="4">
-                    <img src="asset\img\case\case1b.jpg" alt="Before" class="before-image">
-                    <img src="asset\img\case\case1a.jpg" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="assets/img/case/case1a.jpg" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="assets/img/case/case1b.jpg" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>Weeded Yard Makeover</h4>
                 </div>
             </div>
 
             <!-- Project 5 -->
             <div class="comparison-card">
-                <h2 class="project-title">The Return Of The Fungus</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="5">
-                    <img src="https://images.unsplash.com/photo-1767188878385-2ac8f51a01f0?w=900&auto=format&fit=crop&q=80" alt="Before" class="before-image">
-                    <img src="https://images.unsplash.com/photo-1767188878181-f7d9c6c0a47e?w=900&auto=format&fit=crop&q=80" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="https://images.unsplash.com/photo-1767188878181-f7d9c6c0a47e?w=900&auto=format&fit=crop&q=80" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="https://images.unsplash.com/photo-1767188878385-2ac8f51a01f0?w=900&auto=format&fit=crop&q=80" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>The Return Of The Fungus</h4>
                 </div>
             </div>
 
             <!-- Project 6 -->
             <div class="comparison-card">
-                <h2 class="project-title">No More Weeds</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="6">
-                    <img src="asset\img\case\case2b.jpg" alt="Before" class="before-image">
-                    <img src="asset\img\case\case2a.jpg" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="assets/img/case/case2a.jpg" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="assets/img/case/case2b.jpg" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Dethatching</span>
+                    <h4>No More Weeds</h4>
                 </div>
             </div>
 
             <!-- Project 7 -->
             <div class="comparison-card">
-                <h2 class="project-title">The Fungus Menace</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="5">
-                    <img src="asset\img\case\case3b.jpg" alt="Before" class="before-image">
-                    <img src="asset\img\case\case3a.jpg" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="assets/img/case/case3a.jpg" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="assets/img/case/case3b.jpg" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>The Fungus Menace</h4>
                 </div>
             </div>
 
             <!-- Project 8 -->
             <div class="comparison-card">
-                <h2 class="project-title">Attack Of The Fungus</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="6">
-                    <img src="asset\img\case\case4b.jpg" alt="Before" class="before-image">
-                    <img src="asset\img\case\case4a.jpg" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="assets/img/case/case4a.jpg" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="assets/img/case/case4b.jpg" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>Attack Of The Fungus</h4>
                 </div>
             </div>
 
             <!-- Project 9 -->
             <div class="comparison-card">
-                <h2 class="project-title">Revenge Of The Fungus</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="5">
-                    <img src="asset\img\case\case-cowgrass1a.jpg" alt="Before" class="before-image">
-                    <img src="asset\img\case\case-cowgrass1b.jpg" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="assets/img/case/case-cowgrass1a.jpg" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="assets/img/case/case-cowgrass1b.jpg" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>Revenge Of The Fungus</h4>
                 </div>
             </div>
 
             <!-- Project 10 -->
             <div class="comparison-card">
-                <h2 class="project-title">The Fungus Awakens</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="6">
-                    <img src="https://images.unsplash.com/photo-1767188823665-1895995c7b89?w=900&auto=format&fit=crop&q=80" alt="Before" class="before-image">
-                    <img src="https://images.unsplash.com/photo-1767188823744-1b85d2d7d713?w=900&auto=format&fit=crop&q=80" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="https://images.unsplash.com/photo-1767188823744-1b85d2d7d713?w=900&auto=format&fit=crop&q=80" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="https://images.unsplash.com/photo-1767188823665-1895995c7b89?w=900&auto=format&fit=crop&q=80" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>The Fungus Awakens</h4>
                 </div>
             </div>
 
             <!-- Project 11 -->
             <div class="comparison-card">
-                <h2 class="project-title">The Last Fungus</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="5">
-                    <img src="https://images.unsplash.com/photo-1767188861491-4f6bf439ccde?w=900&auto=format&fit=crop&q=80" alt="Before" class="before-image">
-                    <img src="https://images.unsplash.com/photo-1767188861406-a4b37e6f6f71?w=900&auto=format&fit=crop&q=80" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="https://images.unsplash.com/photo-1767188861406-a4b37e6f6f71?w=900&auto=format&fit=crop&q=80" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="https://images.unsplash.com/photo-1767188861491-4f6bf439ccde?w=900&auto=format&fit=crop&q=80" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>The Last Fungus</h4>
                 </div>
             </div>
 
             <!-- Project 12 -->
             <div class="comparison-card">
-                <h2 class="project-title">The Rise Of Fungus</h2>
-                <p class="project-description"></p>
-                <div class="before-after-slider" data-slider="6">
-                    <img src="https://images.unsplash.com/photo-1767188867558-b2ca20c2f19c?w=900&auto=format&fit=crop&q=80" alt="Before" class="before-image">
-                    <img src="https://images.unsplash.com/photo-1767188868060-5b35596e9ea2?w=900&auto=format&fit=crop&q=80" alt="After" class="after-image">
-                    <div class="before-label">Before</div>
-                    <div class="after-label">After</div>
-                    <div class="slider-handle">
-                        <div class="slider-button">
+                <div class="comparison-container" data-compare>
+                    <div class="comparison-before">
+                        <img src="https://images.unsplash.com/photo-1767188868060-5b35596e9ea2?w=900&auto=format&fit=crop&q=80" alt="Before lawn care">
+                        <span class="comparison-label">Before</span>
+                    </div>
+                    <div class="comparison-after">
+                        <img src="https://images.unsplash.com/photo-1767188867558-b2ca20c2f19c?w=900&auto=format&fit=crop&q=80" alt="After lawn care">
+                        <span class="comparison-label">After</span>
+                    </div>
+                    <div class="comparison-slider">
+                        <div class="comparison-handle">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/>
+                                <path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/>
                             </svg>
                         </div>
                     </div>
+                </div>
+                <div class="comparison-info">
+                    <span class="comparison-tag">Lawn Recovery</span>
+                    <h4>The Rise Of Fungus</h4>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Lawn?</h2>
+            <p>Get in touch today for a free consultation and quote</p>
+            <a href="index.html#book" class="header-cta" style="font-size: 1.125rem; padding: 1rem 3rem;">Get Started</a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="index.html" class="footer-logo">
-                    <div class="logo-icon">
-                        <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 989.11 989.01">
-                            <defs>
-                                <style>.cls-1 { fill: #fff; }</style>
-                            </defs>
-                            <g id="Layer_1-2" data-name="Layer 1">
-                                <path class="cls-1" d="M980.14,396.17c-8.25-43.35-22.18-84.75-42.22-124.08-28.85-56.63-68.01-105.24-115.09-147.65C739.56,49.44,641.94,8.34,530.11,1.14c-38.65-2.48-77.16-.94-115.5,4.82-42.56,6.4-83.53,18.19-122.78,35.86-60.64,27.3-112.75,66.41-158.29,114.56-41.97,44.37-75.45,94.29-98.49,151C10.71,367.28.03,429.75,0,494.22c-.01,30.99,2.32,59.12,7.31,88.95,9.9,59.24,30.45,114.52,61.83,165.74,26.63,43.48,59.6,81.66,97.4,115.75,33.44,30.14,70.11,55.57,110.5,75.55,66.91,33.09,138.03,48.04,212.36,48.77,32.67.32,65.14-2.21,97.36-7.9,48.41-8.55,94.36-24.17,137.75-47.27,48.38-25.75,90.8-59.28,128.63-98.77,34.36-35.88,63.35-75.6,85.72-120.05,34.07-67.69,49.51-139.75,50.22-215.22.33-34.81-2.42-69.37-8.94-103.6ZM286.46,901.48c-48.16-25.15-90.08-58.42-127.04-98.07-39.25-42.12-70.11-89.57-90.84-143.43-12.57-32.69-20.91-66.43-25.42-101.16-3.5-26.9-4.79-53.91-3.89-81,1.84-55.83,12.58-109.79,34.52-161.34,21.94-51.55,53.23-96.82,92.02-137.06,34.46-35.75,72.97-66.22,116.86-89.68,41.61-22.23,85.73-36.95,132.25-44.71,34.57-5.77,69.36-7.57,104.29-5.93,109.86,5.16,204.79,45.77,285.1,120.77,40.16,37.5,73.71,80.07,98.95,129.04,2.37,4.59,2.11,7.6-.79,11.84-78.06,114.15-155.97,228.42-233.91,342.65-1.08,1.59-1.88,3.43-4.16,5.01-58.45-202.86-116.82-405.43-175.18-608.01-.33.02-.66.03-.99.04-53.39,202.48-106.78,404.96-160.21,607.57-.87-.66-.04.03-.75-.02-.17-.01-.36-.11-.47-.23-.48-.53-.96-1.05-1.38-1.61-82.36-110.91-164.71-221.83-247.07-332.74-.1-.12-.31-.17-1.42-.76,72.11,197.68,143.85,394.34,215.95,591.99-2.79-1.37-4.63-2.22-6.42-3.16ZM667.36,918.39c-14.15,5.82-28.63,10.71-43.35,14.84-32.31,9.07-65.24,14.38-98.75,16.34-26.73,1.57-53.4,1.14-80.01-1.48-44.15-4.34-86.88-14.57-127.84-31.82-.82-.34-1.62-.74-2.46-1.03-1.33-.47-1.44-1.44-1.09-2.56.68-2.2,1.42-4.39,2.14-6.59,30.69-93.36,61.38-186.71,92.06-280.08,28.47-86.6,56.92-173.21,85.39-259.82.43-1.3.97-2.58,1.45-3.87.35-.01.7-.01,1.04-.02,2.97,9.26,5.96,18.51,8.89,27.77,55.09,173.81,110.17,347.62,165.26,521.43.05.17.15.33.19.5,1.38,5.4,2.35,4.23-2.92,6.39ZM950.4,518.86c-4.98,105.76-42.44,198.39-113.22,277.31-39.6,44.14-85.3,80.55-138.09,107.83-2.52,1.3-5.07,2.52-7.6,3.79l-.93-.72c72.72-201.71,145.44-403.41,218.5-606.05,1.02,1.95,1.66,3.05,2.19,4.21,16.92,36.73,28.05,75.17,34.23,115.13,5.05,32.68,6.47,65.54,4.92,98.5Z"/>
-                            </g>
-                        </svg>
+                <div class="footer-section">
+                    <h4>TheLawn</h4>
+                    <p>Malaysia's professional lawn care services for residential and commercial properties.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#benefits">Why Choose Us</a></li>
+                        <li><a href="areacalc.html">Area Calculator</a></li>
+                        <li><a href="3bulan.html">Set 3 Bulan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="https://wa.me/601121888274?text=Hello, TheLawn!">WhatsApp</a></li>
+                        <li><a href="mailto:admin@thelawn.com.my">Email Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/thelawnmalaysia" target="_blank" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@thelawncare" target="_blank" aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </a>
                     </div>
-                    <span class="logo-text">The<span class="highlight">Lawn</span></span>
-                </a>
-                <p class="footer-text">Malaysia's premier lawn care service. Perkhidmatan lanskap dan produk laman berkualiti tinggi pada harga berpatutan.</p>
-
-                <div class="footer-social">
-                    <a href="https://wa.me/601121888274?text=Hello, TheLawn!" target="_blank" aria-label="WhatsApp">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/thelawnmalaysia" target="_blank" aria-label="Facebook">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.tiktok.com/@thelawncare" target="_blank" aria-label="TikTok">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                        </svg>
-                    </a>
                 </div>
-
-                <div class="footer-bottom">
-                    <p>&copy; <span id="currentYear"></span> TheLawn. All rights reserved.</p>
-                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TheLawn. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/601121888274?text=Hello, TheLawn!" target="_blank" class="whatsapp-button" aria-label="WhatsApp" onclick="gtag('event', 'click', {'event_category': 'WhatsApp', 'event_label': 'gallery', 'transport_type': 'beacon'});">
+    <a href="https://wa.me/601121888274?text=Hello, TheLawn!" target="_blank" class="whatsapp-float" aria-label="WhatsApp" onclick="gtag('event', 'click', {'event_category': 'WhatsApp', 'event_label': 'gallery', 'transport_type': 'beacon'});">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
-        <span class="whatsapp-button-text">WhatsApp Now</span>
     </a>
 
     <!-- Back to Top Button -->
@@ -1016,39 +448,8 @@
         </svg>
     </button>
 
+    <script src="assets/js/script.js"></script>
     <script>
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-
-        function openMenu() {
-            mobileNav.classList.add('active');
-            mobileOverlay.classList.add('active');
-            menuToggle.classList.add('active');
-            document.body.classList.add('menu-open');
-        }
-
-        function closeMenu() {
-            mobileNav.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
-
-        menuToggle.addEventListener('click', () => {
-            mobileNav.classList.contains('active') ? closeMenu() : openMenu();
-        });
-
-        mobileOverlay.addEventListener('click', closeMenu);
-
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-
         // Back to top button
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
@@ -1061,55 +462,6 @@
 
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Before/After Slider Functionality
-        document.querySelectorAll('.before-after-slider').forEach(slider => {
-            const afterImage = slider.querySelector('.after-image');
-            const handle = slider.querySelector('.slider-handle');
-            let isSliding = false;
-
-            function updateSlider(x) {
-                const rect = slider.getBoundingClientRect();
-                const position = Math.max(0, Math.min(x - rect.left, rect.width));
-                const percentage = (position / rect.width) * 100;
-
-                afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-                handle.style.left = `${percentage}%`;
-            }
-
-            function startSliding(e) {
-                isSliding = true;
-                slider.style.cursor = 'ew-resize';
-                e.preventDefault();
-            }
-
-            function stopSliding() {
-                isSliding = false;
-                slider.style.cursor = 'ew-resize';
-            }
-
-            function handleMove(e) {
-                if (!isSliding) return;
-
-                const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-                updateSlider(x);
-            }
-
-            // Mouse events
-            slider.addEventListener('mousedown', startSliding);
-            document.addEventListener('mouseup', stopSliding);
-            document.addEventListener('mousemove', handleMove);
-
-            // Touch events
-            slider.addEventListener('touchstart', startSliding);
-            document.addEventListener('touchend', stopSliding);
-            document.addEventListener('touchmove', handleMove);
-
-            // Click to position
-            slider.addEventListener('click', (e) => {
-                updateSlider(e.clientX);
-            });
         });
     </script>
 </body>
